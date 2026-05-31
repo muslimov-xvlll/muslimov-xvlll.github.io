@@ -428,3 +428,19 @@ section {
     border-radius: 8px;
     font-weight: 600;
 }
+
+/* MOBILE FIX — корректная работа модалки на телефонах */
+@media (max-width: 768px) {
+
+    .modal-content {
+        max-height: 85vh;       /* окно не выходит за экран */
+        overflow-y: auto;       /* появляется скролл внутри */
+        padding: 24px;          /* чуть меньше отступы */
+        border-radius: 10px;
+    }
+
+    .modal {
+        align-items: flex-start; /* окно прижимается вверх */
+        padding-top: 40px;       /* небольшой отступ сверху */
+    }
+}
