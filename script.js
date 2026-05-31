@@ -3,65 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.lucide) {
         lucide.createIcons();
     }
-
-    // Блок "Что я делаю" — единый текст снизу
-    const cards = document.querySelectorAll('.feature-card');
-    const details = document.getElementById('feature-details');
-
-    const content = {
-        backend: `
-            <p>FastAPI, Asyncio, Kafka, архитектура микросервисов.</p>
-            <a href="#">Кейс Backend →</a>
-        `,
-        parsing: `
-            <p>curl_cffi, CDN, обход антиботов, сбор данных.</p>
-            <a href="#">Кейс Парсинг →</a>
-        `,
-        cv: `
-            <p>YOLOv8, OpenCV, real‑time обработка видео.</p>
-            <a href="#">Кейс Computer Vision →</a>
-        `,
-        automation: `
-            <p>Playwright, browser‑agents, persistent context.</p>
-            <a href="#">Кейс Automation →</a>
-        `
-    };
-
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            const key = card.dataset.feature;
-
-            // если уже активен — скрываем
-            if (card.classList.contains('active')) {
-                card.classList.remove('active');
-                details.style.display = 'none';
-                details.innerHTML = '';
-                return;
-            }
-
-            // сбрасываем остальные
-            cards.forEach(c => c.classList.remove('active'));
-            card.classList.add('active');
-
-            // показываем контент
-            details.innerHTML = content[key] || '';
-            details.style.display = 'block';
-        });
-    });
-
-    // 3D hover для проектов
-    document.querySelectorAll('.tilt').forEach(card => {
-        card.addEventListener('mousemove', e => {
-            const rect = card.getBoundingClientRect();
-            const x = (e.clientX - rect.left - rect.width / 2) / 15;
-            const y = (e.clientY - rect.top - rect.height / 2) / 15;
-            card.style.transform = `rotateX(${-y}deg) rotateY(${x}deg)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-        });
-    });
 });
 
 
@@ -103,7 +44,7 @@ const projectData = {
             работать с Kafka, проектировать архитектуру и оптимизировать производительность.</p>
         `,
         tech: "FastAPI · Kafka · Redis · PostgreSQL · Docker · Telegram API",
-        github: "#"
+        github: "https://github.com/muslimov-xvlll/WatchDog--Analytics"
     },
 
     wbparser: {
@@ -134,7 +75,7 @@ const projectData = {
         `,
 
         tech: "Python · curl_cffi · Asyncio · PostgreSQL",
-        github: "#"
+        github: "https://github.com/muslimov-xvlll/wb_parser_to_excel"
     },
 
     ergovision: {
@@ -164,7 +105,7 @@ const projectData = {
         `,
 
         tech: "YOLOv8 · OpenCV · Python · NumPy",
-        github: "#"
+        github: "https://github.com/muslimov-xvlll/CV-project"
     },
 
     browseragent: {
@@ -197,7 +138,7 @@ const projectData = {
         `,
 
         tech: "Playwright · Python · Asyncio · LLM Integration",
-        github: "#"
+        github: "https://github.com/muslimov-xvlll/browser_AI-agent"
     }
 };
 
@@ -220,13 +161,11 @@ document.querySelectorAll('.more-btn').forEach(btn => {
         modalTech.textContent = data.tech;
         modalGithub.href = data.github;
 
-        modal.style.display = 'flex';
         modal.classList.add('show');
     });
 });
 
 document.querySelector('.modal-close').addEventListener('click', () => {
-    modal.style.display = 'none';
     modal.classList.remove('show');
 });
 

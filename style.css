@@ -141,175 +141,6 @@ section {
     transform: translateY(-4px);
 }
 
-/* FEATURES */
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 24px;
-}
-
-.feature-card {
-    background: #111827;
-    border-radius: 12px;
-    padding: 24px;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.25s;
-}
-
-.feature-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 20px rgba(56,189,248,0.25);
-}
-
-.feature-card.active {
-    background: #1e293b;
-    box-shadow: 0 0 25px rgba(56,189,248,0.4);
-}
-
-.feature-details {
-    display: none;
-    margin-top: 32px;
-    background: #111827;
-    border-radius: 12px;
-    padding: 24px;
-    font-size: 15px;
-    color: #d1d5db;
-    animation: fadeIn 0.3s ease;
-}
-
-.feature-details a {
-    display: inline-block;
-    margin-top: 8px;
-    font-size: 14px;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-/* PROJECTS */
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
-    perspective: 900px;
-}
-
-.project-card {
-    background: #111827;
-    border-radius: 12px;
-    padding: 24px;
-    transition: 0.25s;
-}
-
-.project-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 12px;
-    font-size: 14px;
-}
-
-.project-link i {
-    width: 18px;
-    height: 18px;
-}
-
-/* 3D tilt */
-
-.tilt {
-    transform-style: preserve-3d;
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-}
-
-.tilt:hover {
-    box-shadow: 0 0 24px rgba(56,189,248,0.35);
-    cursor: pointer;
-}
-
-/* JOURNEY */
-
-.journey-timeline {
-    margin-top: 32px;
-    display: grid;
-    gap: 20px;
-}
-
-.journey-step {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 16px;
-    align-items: flex-start;
-}
-
-.journey-dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #38bdf8;
-    box-shadow: 0 0 12px rgba(56,189,248,0.8);
-    margin-top: 6px;
-}
-
-.journey-card {
-    background: #111827;
-    border-radius: 10px;
-    padding: 16px 18px;
-}
-
-.journey-card h4 {
-    margin: 0 0 4px;
-    font-size: 18px;
-    color: #38bdf8;
-}
-
-.journey-card p {
-    margin: 0;
-    font-size: 14px;
-    color: #9ca3af;
-}
-
-/* ABOUT */
-
-.about p {
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
-    color: #d1d5db;
-}
-
-/* CONTACTS */
-
-.contacts p {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    justify-content: center;
-    margin: 6px 0;
-}
-
-.contacts i {
-    width: 18px;
-    height: 18px;
-}
-
-
-/* Анимация появления */
-@keyframes fadeUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* Применяем к элементам header */
 .hero-title,
 .hero-subtitle,
@@ -336,7 +167,7 @@ section {
     100% { opacity: 1; }
 }
 
-
+/*------ STACK ------*/
 
 .stack {
     padding: 72px 0;
@@ -383,8 +214,6 @@ section {
 .stack-item {
     width: 90px;
     height: 90px;
-    /* background: #0f172a; */
-    /* border: 1px solid rgba(56,189,248,0.15); */
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -396,7 +225,6 @@ section {
     box-shadow: 0 0 5px rgba(237, 237, 237, 0.967);
     background: rgba(0, 0, 0, 0);
     border: 1px solid rgba(56, 191, 248, 0);
-    /* box-shadow: inset 0 0 6px rgba(56,189,248,0.08); */
 }
 
 .stack-item img {
@@ -404,13 +232,38 @@ section {
     height: 40px;
     margin-bottom: 6px;
     object-fit: contain;
-    /* filter: brightness(0) saturate(100%) invert(66%) sepia(100%) saturate(500%) hue-rotate(180deg); */
 }
 
-/* .stack-item:hover {
-    border-color: rgba(56,189,248,0.4);
-    box-shadow: 0 0 10px rgba(56,189,248,0.15);
-} */
+
+/* PROJECTS */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    perspective: 900px;
+}
+
+.project-card {
+    background: #111827;
+    border-radius: 12px;
+    padding: 24px;
+    transition: 0.25s;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.project-link i {
+    width: 18px;
+    height: 18px;
+}
+
 
 /* PROJECT CARDS — FULL-CARD FADE FLIP */
 
@@ -421,7 +274,7 @@ section {
     overflow: hidden;
     cursor: pointer;
     background: #111827;
-    transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 /* Вся карточка реагирует */
@@ -502,30 +355,30 @@ section {
     z-index: 1000;
 }
 
+/* ===== MODAL — Fade + Blur-In ===== */
+
 .modal {
+    position: fixed;
+    inset: 0;
+    display: flex; /* ← всегда flex */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+
     opacity: 0;
-    transition: opacity 0.25s ease;
+    pointer-events: none; /* ← скрывает клики */
+    backdrop-filter: blur(0px);
+    transition:
+        opacity 0.35s ease,
+        backdrop-filter 0.45s ease;
 }
 
 .modal.show {
     opacity: 1;
+    pointer-events: auto; /* ← снова кликабельна */
+    backdrop-filter: blur(6px);
 }
 
-.modal-content {
-    transform: scale(0.92);
-    opacity: 0;
-    transition: 0.35s ease;
-}
-
-.modal.show .modal-content {
-    transform: scale(1);
-    opacity: 1;
-}
-
-@keyframes modalFade {
-    0% { opacity: 0; transform: scale(0.92); }
-    100% { opacity: 1; transform: scale(1); }
-}
 
 .modal-content {
     background: #111827;
@@ -535,6 +388,28 @@ section {
     max-width: 620px;
     position: relative;
     box-shadow: 0 0 20px rgba(56,189,248,0.25);
+
+    opacity: 0;
+    transform: scale(0.96);
+    filter: blur(6px);
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s ease,
+        filter 0.45s ease;
+}
+
+.modal.show .modal-content {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+}
+
+
+
+
+@keyframes modalFade {
+    0% { opacity: 0; transform: scale(0.92); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
 .modal-close {
@@ -574,4 +449,98 @@ section {
     color: #0a0f1c !important;
     border-radius: 8px;
     font-weight: 600;
+}
+
+
+/* CONTACTS — CTA + GLASS ICONS + GRADIENT BACKGROUND */
+
+.contacts {
+    text-align: center;
+    padding: 50px 0;
+    position: relative;
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 1;
+
+    /* фон */
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.contacts-cta {
+    font-size: 28px;
+    font-weight: 900;
+    color: #e5e7eb;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    letter-spacing: 2px;
+}
+
+.contacts-subtitle {
+    font-size: 15px;
+    color: #94a3b8;
+    margin-bottom: 22px;
+}
+
+/* Иконки-кнопки */
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 20px;
+}
+
+.contact-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Стеклянный эффект */
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.12);
+
+    font-size: 24px;
+    color: #38bdf8;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        color 0.25s ease;
+}
+
+.contact-icon:hover {
+    transform: scale(1.12);
+    color: #60a5fa;
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 0 18px rgba(56,189,248,0.35);
+}
+
+/* Tooltip */
+.contact-icon::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -38px;
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+
+    background: rgba(15,23,42,0.85);
+    backdrop-filter: blur(4px);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #d1d5db;
+    white-space: nowrap;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.contact-icon:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
