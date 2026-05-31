@@ -1,4 +1,7 @@
-/* BASE */
+/* ===========================
+   BASE
+=========================== */
+
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -27,7 +30,28 @@ section {
     text-align: center;
 }
 
-/* HERO */
+/* Анимации */
+
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroFade {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes breathe {
+    0%   { transform: scale(1); opacity: 0.35; filter: blur(0px); }
+    50%  { transform: scale(1.12); opacity: 0.55; filter: blur(6px); }
+    100% { transform: scale(1); opacity: 0.35; filter: blur(0px); }
+}
+
+
+/* ===========================
+   HERO
+=========================== */
 
 .hero {
     position: relative;
@@ -38,6 +62,8 @@ section {
     text-align: center;
     overflow: hidden;
     background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
+    opacity: 0;
+    animation: heroFade 1.2s ease forwards;
 }
 
 .hero-bg {
@@ -48,46 +74,23 @@ section {
     z-index: 0;
 }
 
-@keyframes breathe {
-    0%   { transform: scale(1); opacity: 0.35; filter: blur(0px); }
-    50%  { transform: scale(1.12); opacity: 0.55; filter: blur(6px); }
-    100% { transform: scale(1); opacity: 0.35; filter: blur(0px); }
-}
-
-
 .hero-content {
     position: relative;
     z-index: 1;
 }
 
-.hero-title {
-    font-size: 42px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 12px;
-}
-
-.hero-subtitle {
-    font-size: 20px;
-    color: #38bdf8;
-    margin-bottom: 16px;
-}
-
-.hero-description {
-    font-size: 18px;
-    color: #9ca3af;
-    max-width: 700px;
-    margin: 0 auto 32px;
-}
-
-
+.hero-title,
+.hero-subtitle,
+.hero-description,
 .hero-buttons {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
 }
+
+.hero-title { animation-delay: 0.2s; font-size: 42px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.hero-subtitle { animation-delay: 0.4s; font-size: 20px; color: #38bdf8; margin-bottom: 16px; }
+.hero-description { animation-delay: 0.6s; font-size: 18px; color: #9ca3af; max-width: 700px; margin: 0 auto 32px; }
+.hero-buttons { animation-delay: 0.8s; margin-top: 30px; display: flex; justify-content: center; gap: 16px; }
 
 .hero-tagline {
     font-size: 22px;
@@ -96,7 +99,6 @@ section {
     margin-top: 8px;
     letter-spacing: 0.5px;
 }
-
 
 .btn {
     display: inline-flex;
@@ -112,10 +114,7 @@ section {
     border: none;
 }
 
-.btn i {
-    width: 20px;
-    height: 20px;
-}
+.btn i { width: 20px; height: 20px; }
 
 .btn-primary {
     background: #38bdf8;
@@ -130,10 +129,6 @@ section {
 .btn-secondary {
     border: 1px solid #38bdf8;
     background: transparent;
-}
-
-.btn-secondary span,
-.btn-secondary i {
     color: #e5e7eb;
 }
 
@@ -141,58 +136,25 @@ section {
     transform: translateY(-4px);
 }
 
-/* Применяем к элементам header */
-.hero-title,
-.hero-subtitle,
-.hero-description,
-.hero-buttons {
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards;
-}
 
-/* Задержки для плавного появления */
-.hero-title { animation-delay: 0.2s; }
-.hero-subtitle { animation-delay: 0.4s; }
-.hero-description { animation-delay: 0.6s; }
-.hero-buttons { animation-delay: 0.8s; }
-
-/* Плавное появление всего header */
-.hero {
-    opacity: 0;
-    animation: heroFade 1.2s ease forwards;
-}
-
-@keyframes heroFade {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-/*------ STACK ------*/
+/* ===========================
+   STACK
+=========================== */
 
 .stack {
     padding: 72px 0;
     background: rgba(15, 23, 42, 0.6);
-}
-
-.stack {
     backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
 }
-
 
 .stack-group {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 32px;
-}
-
-.stack-group {
+    align-items: center;
     background: rgba(255,255,255,0.03);
     border-radius: 10px;
     padding: 24px;
     margin-bottom: 24px;
     box-shadow: 0 0 10px rgba(56,189,248,0.05);
-    align-items: center;
     text-align: left;
 }
 
@@ -224,7 +186,6 @@ section {
     font-weight: 500;
     box-shadow: 0 0 5px rgba(237, 237, 237, 0.967);
     background: rgba(0, 0, 0, 0);
-    border: 1px solid rgba(56, 191, 248, 0);
 }
 
 .stack-item img {
@@ -235,7 +196,9 @@ section {
 }
 
 
-/* PROJECTS */
+/* ===========================
+   PROJECTS
+=========================== */
 
 .projects-grid {
     display: grid;
@@ -245,39 +208,15 @@ section {
 }
 
 .project-card {
-    background: #111827;
-    border-radius: 12px;
-    padding: 24px;
-    transition: 0.25s;
-}
-
-.project-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 12px;
-    font-size: 14px;
-}
-
-.project-link i {
-    width: 18px;
-    height: 18px;
-}
-
-
-/* PROJECT CARDS — FULL-CARD FADE FLIP */
-
-.project-card {
     position: relative;
     height: 180px;
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
     background: #111827;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
 }
 
-/* Вся карточка реагирует */
 .project-card:hover {
     transform: scale(1.03);
     background: #1a2335;
@@ -290,7 +229,6 @@ section {
     height: 100%;
 }
 
-/* FRONT + BACK */
 .card-front,
 .card-back {
     position: absolute;
@@ -301,30 +239,15 @@ section {
     justify-content: center;
     align-items: center;
     text-align: center;
-
     transition: opacity 0.35s ease;
 }
 
-/* FRONT */
-.card-front {
-    opacity: 1;
-}
+.card-front { opacity: 1; }
+.card-back { opacity: 0; }
 
-/* BACK */
-.card-back {
-    opacity: 0;
-}
+.project-card:hover .card-front { opacity: 0; }
+.project-card:hover .card-back { opacity: 1; }
 
-/* При наведении — плавная смена */
-.project-card:hover .card-front {
-    opacity: 0;
-}
-
-.project-card:hover .card-back {
-    opacity: 1;
-}
-
-/* Текст */
 .mini-tech {
     font-size: 13px;
     color: #9ca3af;
@@ -342,43 +265,110 @@ section {
 }
 
 
-/* MODAL */
+/* ===========================
+   CONTACTS
+=========================== */
 
-.modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.65);
-    backdrop-filter: blur(6px);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
+.contacts {
+    text-align: center;
+    padding: 50px 0;
+    position: relative;
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
 }
 
-/* ===== MODAL — Fade + Blur-In ===== */
+.contacts-cta {
+    font-size: 28px;
+    font-weight: 900;
+    color: #e5e7eb;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.contacts-subtitle {
+    font-size: 15px;
+    color: #94a3b8;
+    margin-bottom: 22px;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 20px;
+}
+
+.contact-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.12);
+    font-size: 24px;
+    color: #38bdf8;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+    position: relative;
+}
+
+.contact-icon:hover {
+    transform: scale(1.12);
+    color: #60a5fa;
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 0 18px rgba(56,189,248,0.35);
+}
+
+.contact-icon::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -38px;
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    background: rgba(15,23,42,0.85);
+    backdrop-filter: blur(4px);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #d1d5db;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.contact-icon:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* ===========================
+   MODAL
+=========================== */
 
 .modal {
     position: fixed;
     inset: 0;
-    display: flex; /* ← всегда flex */
+    display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-
     opacity: 0;
-    pointer-events: none; /* ← скрывает клики */
+    pointer-events: none;
     backdrop-filter: blur(0px);
-    transition:
-        opacity 0.35s ease,
-        backdrop-filter 0.45s ease;
+    transition: opacity 0.35s ease, backdrop-filter 0.45s ease;
 }
 
 .modal.show {
     opacity: 1;
-    pointer-events: auto; /* ← снова кликабельна */
+    pointer-events: auto;
     backdrop-filter: blur(6px);
 }
-
 
 .modal-content {
     background: #111827;
@@ -388,28 +378,16 @@ section {
     max-width: 620px;
     position: relative;
     box-shadow: 0 0 20px rgba(56,189,248,0.25);
-
     opacity: 0;
     transform: scale(0.96);
     filter: blur(6px);
-    transition:
-        opacity 0.45s ease,
-        transform 0.45s ease,
-        filter 0.45s ease;
+    transition: opacity 0.45s ease, transform 0.45s ease, filter 0.45s ease;
 }
 
 .modal.show .modal-content {
     opacity: 1;
     transform: scale(1);
     filter: blur(0px);
-}
-
-
-
-
-@keyframes modalFade {
-    0% { opacity: 0; transform: scale(0.92); }
-    100% { opacity: 1; transform: scale(1); }
 }
 
 .modal-close {
@@ -449,98 +427,4 @@ section {
     color: #0a0f1c !important;
     border-radius: 8px;
     font-weight: 600;
-}
-
-
-/* CONTACTS — CTA + GLASS ICONS + GRADIENT BACKGROUND */
-
-.contacts {
-    text-align: center;
-    padding: 50px 0;
-    position: relative;
-    animation: fadeUp 0.8s ease forwards;
-    opacity: 1;
-
-    /* фон */
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-}
-
-.contacts-cta {
-    font-size: 28px;
-    font-weight: 900;
-    color: #e5e7eb;
-    margin-bottom: 12px;
-    line-height: 1.4;
-    letter-spacing: 2px;
-}
-
-.contacts-subtitle {
-    font-size: 15px;
-    color: #94a3b8;
-    margin-bottom: 22px;
-}
-
-/* Иконки-кнопки */
-.contact-icons {
-    display: flex;
-    justify-content: center;
-    gap: 28px;
-    margin-top: 20px;
-}
-
-.contact-icon {
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /* Стеклянный эффект */
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.12);
-
-    font-size: 24px;
-    color: #38bdf8;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        color 0.25s ease;
-}
-
-.contact-icon:hover {
-    transform: scale(1.12);
-    color: #60a5fa;
-    background: rgba(255,255,255,0.08);
-    box-shadow: 0 0 18px rgba(56,189,248,0.35);
-}
-
-/* Tooltip */
-.contact-icon::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: -38px;
-    left: 50%;
-    transform: translateX(-50%) translateY(6px);
-
-    background: rgba(15,23,42,0.85);
-    backdrop-filter: blur(4px);
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 13px;
-    color: #d1d5db;
-    white-space: nowrap;
-
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.contact-icon:hover::after {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
 }
